@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Programmer Humour</title>
+        <style>
+           body{
+               background-color: powderblue;
+             }
+           h2 {
+               color:saddlebrown;
+               font-family: 'Lucida Handwriting';
+              
+           }
+
+         
+        </style>
+    </head>
+
+    <body>
+        <h2>Welcome to my comic page</h2>
+
+        <script> 
+            
+            let myBody = document.querySelector("body")
+            //let myContent =document.createElement("div")
+            let myImg = document.createElement("img")
+           // myContent.appendChild(myImg)
+            myBody.appendChild(myImg)
+           
+            fetch ("https://xkcd.now.sh/?comic=latest")
+
+            .then(function(response){
+                return response.json();
+
+            })
+            .then(function(data){
+               // console.log(data)
+               myImg.src = data.img;
+               
+            })
+
+            .catch(function (error){
+            console.log(error)
+            })
+        </script>
+    </body>
+</html>
